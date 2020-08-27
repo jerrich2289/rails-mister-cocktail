@@ -1,49 +1,20 @@
 <h1>GET DRUNK YOU WITCH</h1>
 <h3>Cocktail List</h3>
 
+
 <div class="row row-cols-1 row-cols-md-2">
-  <div class="col mb-4">
-    <div class="card">
-      <img src="https://source.unsplash.com/lwoTuByIuC4/1600x900" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Gin's Summer Aunt</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
+  <% @cocktails.each do |cocktail| %>
+    <div class="col mb-4">
+    <%= link_to cocktail_path(cocktail) do %>
     <div class="card">
       <img src="https://source.unsplash.com/gj7BLlSzIFs/1600x900" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">A Typical Male</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title"><%= cocktail.name %></h5>
       </div>
     </div>
+    <% end %>
   </div>
-  <div class="col mb-4">
-    <div class="card">
-      <img src="https://source.unsplash.com/F7HkGy4U0fo/1600x900" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Cooler than You</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-      <img src="https://source.unsplash.com/cROF56xQhes/1600x900" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Fruit's Bitch</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
   <% end %>
-</ul>
+</div>
 
 <a href="http://localhost:3000/cocktails/new" class="btn btn-primary">CREATE YOUR OWN</a>
